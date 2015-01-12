@@ -1,17 +1,23 @@
 class MyHash
   define_method(:initialize) do
-    @global_array = []
+    @key_array = []
+    @value_array = []
   end
 
   define_method(:store) do |key, value|
-    @global_array.push(key, value)
+    if @key_array.include?(key)
+      @value_array[@key_array.index(key)] = value
+    else
+      @key_array.push(key)
+      @value_array.push(value)
+    end
   end
 
   define_method(:fetch) do |key|
-    if @global_array.include?(key)
-      @global_array[@global_array.index(key).+(1)]
+    if @key_array.include?(key)
+      @value_array[@key_array.index(key)]
     else
-      "Not included in the set"
+      "Not included in key set"
     end
   end
 end
