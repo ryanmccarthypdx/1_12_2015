@@ -1,3 +1,4 @@
 source('https://rubygems.org')
-#require('sinatra')
-#require('sinatra-contrib')
+
+gem('sinatra')
+gem('sinatra-contrib')
